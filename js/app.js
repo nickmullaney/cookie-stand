@@ -19,7 +19,7 @@ let store2 = {
   maxCustomer: 24,
   avgCookieSale: 1.2,
   hourlySales: [],
-  totalSales: 0  
+  totalSales: 0
 };
 
 let store3 = {
@@ -72,27 +72,40 @@ function storeCalculator(store) {
   for (let i = 0; i < operatingHours.length; i++) {
     let hourlyCustomers = randNumber(store.minCustomer, store.maxCustomer);
     let avgCookiePerCustomer = Math.round(hourlyCustomers * store.avgCookieSale);
+    //pushes the avg cookie per customer to the hourlysales
     store.hourlySales.push(avgCookiePerCustomer);
-    store.totalSales += store.hourlySales[i];
-    console.log(operatingHours[i] + ': Cookies', avgCookiePerCustomer)
+    let finalSales = (store.totalSales += store.hourlySales[i]);
+    addMe(store.hourlySales, finalSales);
+    // console.log(operatingHours[i] + ': Cookies', avgCookiePerCustomer)
   }
-  console.log(`Total Sales `,store.totalSales)
+  console.log(`Total Sales `, store.totalSales)
 }
 
-function runThatShit(allLocations){
-  for(let i = 0; i < allLocations.length; i++){
+//runs all of the stores through the store calculator
+function runThatShit(allLocations) {
+  for (let i = 0; i < allLocations.length; i++) {
     storeCalculator(allStores[i]);
   }
 }
-
+//runs 
 runThatShit(allStores);
 
+function addMe(store, finalSales) {
+  // 1. select the parent- document.getElementById()
+  let parentElement = document.getElementById(`sales`)
 
-// storeCalculator(store1);
-// storeCalculator(store2);
-// storeCalculator(store3);
-// storeCalculator(store4);
-// storeCalculator(store5);
+  // 2. Create a new element- document.createElement()
+  let orderLi = document.createElement(`li`);
+
+  // 3. Fill created element with Stuff- `.innertext <-- This is a property
+  orderLi.innerText = `${store.location} with ${finalSales}`;
+
+  //4. Append the created element to the parent element- document.appendChild()
+  //This adds a list item to our webpagea
+  parentElement.appendChild(orderLi);
+}
+
+
 
 
 // Test Code Graveyeard
