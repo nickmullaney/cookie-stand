@@ -1,0 +1,17 @@
+#button {
+  width: 6em;
+  border: 2px solid green;
+  background: rgb(186, 112, 38);
+}
+a {
+  display: block;
+  width: 100%;
+  line-height: 2em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+a:hover {
+  color: red;
+  background: rgb(180, 113, 113);
+}
