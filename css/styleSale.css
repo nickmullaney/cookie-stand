@@ -8,6 +8,14 @@ body{
   background: rgb(186, 112, 38);
 
 }
+
+#cookieLocations{
+  background-color: antiquewhite;
+}
+
+#homeButton{
+  padding: 1rem;
+}
 a {
   display: block;
   line-height: 2em;

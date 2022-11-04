@@ -1,7 +1,5 @@
 'use strict';
 
-let operatingHours = [`6 AM`, `7 AM`, `8 AM`, `9 AM`, `10 AM`, `11 AM`, `12 PM`, `1 PM`, `2 PM`, `3 PM`, `4 PM`, `5 PM`, `6 PM`, `7 PM`];
-
 let store1 = {
   location: `Seattle`,
   minCustomer: 23,
@@ -50,22 +48,14 @@ let store5 = {
 };
 
 let allStores = [store1, store2, store3, store4, store5];
+let operatingHours = [`6 AM`, `7 AM`, `8 AM`, `9 AM`, `10 AM`, `11 AM`, `12 PM`, `1 PM`, `2 PM`, `3 PM`, `4 PM`, `5 PM`, `6 PM`, `7 PM`];
 
 
 function randNumber(min, max) {
   return Math.round(min + Math.random() * (max - min));
 }
 
-// console.log(randNumber(23, 65));
-// let randomCustomerHour = store1.randNumber(minCustomer,maxCustomer);
-
-
-//global var of hours
-//global array where the hours are strings
-//14 hours inside array, iterate over it with calculating avg cookies
-
-// 
-
+//try to put alllocations into this function to simplify
 //make a function for store input
 function storeCalculator(store) {
   // console.log(store.location + ' Location');
@@ -87,47 +77,51 @@ function showAllLocations(allLocations) {
     storeCalculator(allStores[i]);
   }
 }
-showAllLocations(allStores);
-console.log(allStores);
-
-
 
 function addMe(store) {
   // 1. select the parent- document.getElementById()
   let parentElement = document.getElementById(`sales`)
-  
+
   let cityName = document.createElement(`h2`);
   cityName.textContent = `Store Location: ${store.location}`;
   parentElement.appendChild(cityName);
-  console.log(`City Name`,cityName);
+  console.log(`City Name`, cityName);
 
-  for(let i = 0; i < operatingHours.length; i++){
-  // 2. Create a new element- document.createElement()
-  let orderLi = document.createElement(`li`);
+  for (let i = 0; i < operatingHours.length; i++) {
+    // 2. Create a new element- document.createElement()
+    let orderLi = document.createElement(`li`);
 
-  // 3. Fill created element with Stuff- `.innertext <-- This is a property
-  orderLi.textContent = `${operatingHours[i]} ${store1.hourlySales[i]} Cookies`;
+    // 3. Fill created element with Stuff- `.innertext <-- This is a property
+    orderLi.textContent = `${operatingHours[i]}: ${store.hourlySales[i]} Cookies`;
 
-  //4. Append the created element to the parent element- document.appendChild()
-  //This adds a list item to our webpage
-  parentElement.appendChild(orderLi);
-} 
-//build a total 
-let finalSales = document.createElement(`li`);
-  finalSales.textContent = `Total Cookies Sold: ${store.totalSales}`;
-  parentElement.appendChild(finalSales);
-  console.log(`City Name`,finalSales);
+    //4. Append the created element to the parent element- document.appendChild()
+    //This adds a list item to our webpage
+    parentElement.appendChild(orderLi);
+  }
+  //Total store sales added to the end of the list
+  let storeTotalSales = document.createElement(`li`);
+  storeTotalSales.textContent = `Total Cookies Sold: ${store.totalSales}`;
+  parentElement.appendChild(storeTotalSales);
 }
 
- function pushToPage(allStores){
-  for(let i = 0; i < allStores.length; i++){
+function finalCookies(allStores){  
+let parentElement = document.getElementById(`finalSales`)
+let finalSales = document.createElement(`p`);
+finalSales.textContent = `Total Cookies Sold: ${store1.totalSales + store2.totalSales + store3.totalSales + store4.totalSales}`;
+parentElement.appendChild(finalSales);
+}
+
+function pushToPage(allStores) {
+  for (let i = 0; i < allStores.length; i++) {
     addMe(allStores[i]);
   }
- }
-pushToPage(allStores);
+}
 
-//theasdjkashd
-// Test Code Graveyeard
+showAllLocations(allStores);
+pushToPage(allStores);
+finalCookies(allStores);
+
+// Test Code Graveyard
 
 // function hourlySales(arr, store){
 //   for(let i = 0; i < arr.length; i++){
