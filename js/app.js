@@ -50,7 +50,7 @@ let store5 = {
 };
 
 let allStores = [store1, store2, store3, store4, store5];
-console.log(allStores);
+
 
 function randNumber(min, max) {
   return Math.round(min + Math.random() * (max - min));
@@ -68,47 +68,67 @@ function randNumber(min, max) {
 
 //make a function for store input
 function storeCalculator(store) {
-  console.log(store.location + ' Location');
+  // console.log(store.location + ' Location');
   for (let i = 0; i < operatingHours.length; i++) {
     let hourlyCustomers = randNumber(store.minCustomer, store.maxCustomer);
     let avgCookiePerCustomer = Math.round(hourlyCustomers * store.avgCookieSale);
     //pushes the avg cookie per customer to the hourlysales
     store.hourlySales.push(avgCookiePerCustomer);
-    let finalSales = (store.totalSales += store.hourlySales[i]);
-    addMe(store.hourlySales, finalSales);
     // console.log(operatingHours[i] + ': Cookies', avgCookiePerCustomer)
+    store.totalSales += store.hourlySales[i];
   }
-  console.log(`Total Sales `, store.totalSales)
+  // console.log(`final sales`, store.finalSales);
+  // console.log(`Total Sales `, store.totalSales)
 }
 
 //runs all of the stores through the store calculator
-function runThatShit(allLocations) {
+function showAllLocations(allLocations) {
   for (let i = 0; i < allLocations.length; i++) {
     storeCalculator(allStores[i]);
   }
 }
-//runs 
-runThatShit(allStores);
+showAllLocations(allStores);
+console.log(allStores);
 
-function addMe(store, finalSales) {
+
+
+function addMe(store) {
   // 1. select the parent- document.getElementById()
   let parentElement = document.getElementById(`sales`)
+  
+  let cityName = document.createElement(`h2`);
+  cityName.textContent = `Store Location: ${store.location}`;
+  parentElement.appendChild(cityName);
+  console.log(`City Name`,cityName);
 
+  for(let i = 0; i < operatingHours.length; i++){
   // 2. Create a new element- document.createElement()
   let orderLi = document.createElement(`li`);
 
   // 3. Fill created element with Stuff- `.innertext <-- This is a property
-  orderLi.innerText = `${store.location} with ${finalSales}`;
+  orderLi.textContent = `${operatingHours[i]} ${store1.hourlySales[i]} Cookies`;
 
   //4. Append the created element to the parent element- document.appendChild()
-  //This adds a list item to our webpagea
+  //This adds a list item to our webpage
   parentElement.appendChild(orderLi);
+} 
+//build a total 
+let finalSales = document.createElement(`li`);
+  finalSales.textContent = `Total Cookies Sold: ${store.totalSales}`;
+  parentElement.appendChild(finalSales);
+  console.log(`City Name`,finalSales);
 }
 
-
+ function pushToPage(allStores){
+  for(let i = 0; i < allStores.length; i++){
+    addMe(allStores[i]);
+  }
+ }
+pushToPage(allStores);
 
 
 // Test Code Graveyeard
+
 // function hourlySales(arr, store){
 //   for(let i = 0; i < arr.length; i++){
 //     store.hourlySales.push(avgCookiePerCustomer)
@@ -123,4 +143,14 @@ function addMe(store, finalSales) {
 
 // function timeConversion(hour) {
 
+// }
+
+//tester code
+// finalSales(allStores);
+
+// function finalSales(allStores) {
+//   for (let i = 0; i < allStores.length; i++) {
+//     finalSales += allStores.totalSales;
+//   }
+//   console.log(`Final sales`, finalSales);
 // }
