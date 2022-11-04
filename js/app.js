@@ -126,7 +126,7 @@ let finalSales = document.createElement(`li`);
  }
 pushToPage(allStores);
 
-
+//theasdjkashd
 // Test Code Graveyeard
 
 // function hourlySales(arr, store){
