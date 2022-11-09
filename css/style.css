@@ -21,3 +21,29 @@ a:hover {
   background: rgb(180, 113, 113);
 }
 
+.storeWelcome{
+background-color: aqua;
+border: 10px;
+border-color: black;
+}
+
+.container{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height:250px;
+  border: 2px solid black;
+  background-color: aliceblue;
+  align-items: center;
+}
+.box{
+  display: flex;
+  min-width: fit-content;
+  width: 200px;
+  height: 200px;
+  border: 2px solid salmon;
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
