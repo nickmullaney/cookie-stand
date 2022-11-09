@@ -1,7 +1,14 @@
+
 body{
   background-color: rgb(244, 194, 194);
 }
 
+header{
+  height: 200px;
+  background-color: rgb(79, 196, 196);
+  text-align: center;
+  padding: 5px;
+}
 #button {
   width: 6em;
   border: 2px solid green;
@@ -21,10 +28,21 @@ a:hover {
   background: rgb(180, 113, 113);
 }
 
-.storeWelcome{
-background-color: aqua;
+.storeNav{
+display: flex;
+flex-direction: row;
 border: 10px;
 border-color: black;
+justify-content: space-evenly;
+
+}
+
+.nav{
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+  display: flex;
+ justify-content:center ;
 }
 
 .container{
