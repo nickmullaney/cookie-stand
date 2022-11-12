@@ -1,5 +1,12 @@
 body {
-  background-color: rgb(244, 194, 194);
+ background: linear-gradient( rgba(103, 45, 131, 1) 0%,
+ rgba(157, 85, 146, 1) 35%,  rgba(224, 40, 118, 1) 90%,
+ rgba(0, 212, 255, 1) 100%);
+}
+
+p{
+  margin: 0;
+  text-align: center;
 }
 
 header {
@@ -11,21 +18,21 @@ header {
 
 .navBar {
   height: fit-content;
-  background: rgb(103, 45, 131);
+ 
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: ease-in;
-}
-
-.navBar:hover{
   background: linear-gradient(
     53deg,
     rgba(103, 45, 131, 1) 0%,
     rgba(157, 85, 146, 1) 35%,
-    rgba(224, 40, 118, 1) 100%,
+    rgba(224, 40, 118, 1) 95%,
     rgba(0, 212, 255, 1) 100%
     );
+}
+
+.navBar:hover{
     
 }
 
@@ -65,12 +72,11 @@ a:hover {
   font-size: 22px;
   width: max-content;
   align-items: right;
-  background: rgb(103, 45, 131);
   background: linear-gradient(
     53deg,
     rgba(103, 45, 131, 1) 0%,
     rgba(157, 85, 146, 1) 35%,
-    rgba(224, 40, 118, 1) 80%,
+    rgba(224, 40, 118, 1) 90%,
     rgba(0, 212, 255, 1) 100%
   );
 }
@@ -93,37 +99,43 @@ justify-content: center;
 
 .bannerGif{
 display: flex;
-justify-items: center;
+justify-content: center;
 flex-wrap: wrap;
+align-content: center;
 }
 
 .locationBanner{
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 }
 
-.locations{
+.location{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   border: 2px solid black;
-  width: 10%;
-  height: 60px;
+  min-width: 150px;
+  width: fit-content;
+  height: fit-content;
+  margin: 1rem;
 }
 
 .googleMap{
-  margin: 10px;
+margin: 10px;
 display: flex;
-justify-content:flex-start;
+justify-content:space-evenly;
 background: linear-gradient(45deg, rgb(244, 194, 194), rgb(211, 125, 125));
 }
 
 
 .mapText{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   margin: 15px;
-  font-size: 25px;
+  
   padding: 10px;
 
 }
