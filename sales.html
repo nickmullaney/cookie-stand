@@ -7,14 +7,28 @@
     <title>sales</title>
     <link rel="stylesheet" href="css/styleSale.css" />
   </head>
-  <body>
-    <h1>Here are my Sales</h1>
-    <h2>Wanna Go back Home?</h2>
-    <div id="homeButton">
-      <a href="index.html"><button>Click Here</button></a>
+  <header class="navBar">
+    <!-- <h1>Welcome to The Salmon Cookie Store!</h1> -->
+    <div id="headerLogo">
+      <img
+        src="images/Logo.gif"
+        alt="Logo"
+        srcset=""
+        width="200"
+        height="150"
+      />
     </div>
-    <p>Check out our sweet sale details!</p>
+    <nav>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Place Order</a>
+      <a href="sales.html">Sales Information</a>
+      <a href="#">Gallery</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
 
+  <body>
     <div id="cookieLocations">
       <table id="cookieTable">
         <thead id="cookieTableHead"></thead>
@@ -26,6 +40,26 @@
 
       <h2 id="finalSales">Final Sales</h2>
     </div>
+
+    <div class="addStore">
+      <h2>Want to see if you could run an Upstream Cookies Store?</h2>
+    <form id="addStoreForm">
+      <label>
+        Store Location
+        <input type="text" name="storeLocation" required placeholder="Store Location, i.e NYC">
+      </label>
+      <label >
+        Minimum Customers
+        <input type="number" name="minCustomer" required placeholder="Min Customers Per Hour">
+      </label>
+      <label >
+        Maximum Customers
+        <input type="number" name="maxCustomer" required placeholder="Max Customers Per Hour">
+      </label>
+      <button type="submit">Create Store</button>
+    </form>
+  </div>
+    
     <script src="js/app.js"></script>
   </body>
 </html>

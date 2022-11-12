@@ -1,41 +1,112 @@
-body{
-  background-color: rgb(244, 194, 194);
+body {
+  background: linear-gradient( rgba(103, 45, 131, 1) 0%,
+  rgba(157, 85, 146, 1) 35%,  rgba(224, 40, 118, 1) 90%,
+  rgba(0, 212, 255, 1) 100%);
+ }
+
+ h2{
+  text-align: center;
+ }
+
+ header {
+  height: 200px;
+  background-color: rgb(79, 196, 196);
+  text-align: center;
+  padding: 5px;
+}
+
+.navBar {
+  height: fit-content;
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: ease-in;
+  background: linear-gradient(
+    53deg,
+    rgba(103, 45, 131, 1) 0%,
+    rgba(157, 85, 146, 1) 35%,
+    rgba(224, 40, 118, 1) 95%,
+    rgba(0, 212, 255, 1) 100%
+    );
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  align-items: center;
+  float: right;
+}
+a {
+  display: flex;
+  /* width:auto; */
+  height: 70px;
+  align-items: center;
+  padding: 15px 20px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 20%;
+  color: aliceblue;
+  font-family: IM Fell English;
+  /* border: 1px solid red; */
+}
+a:hover {
+  transition: 1s;
+  font-size: 22px;
+  width: max-content;
+  align-items: right;
+  background: linear-gradient(
+    53deg,
+    rgba(103, 45, 131, 1) 0%,
+    rgba(157, 85, 146, 1) 35%,
+    rgba(224, 40, 118, 1) 90%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 #button {
   width: 6em;
   border: 2px solid green;
   background: rgb(186, 112, 38);
-
 }
 
 #cookieLocations{
-  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: rgb(247, 236, 222);
 }
 
 #homeButton{
   padding: 1rem;
 }
-a {
-  display: block;
-  line-height: 2em;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  float: left;
-}
-a:hover {
-  color: red;
-  background: rgb(180, 113, 113);
-}
+
 
 table, th, td {
   border: 0.5px solid black;
 }
+
 table{
   border-spacing: 0px;
   text-align: center;
 }
+
 td, th{
+  padding: 1rem;
+}
+.addStore{
+  display: flex;
+  flex-direction: column;
+}
+form{
+  background-color: antiquewhite;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;/* Centers it */
+  margin-top: 1rem;
+  border: 1px solid brown;
   padding: 1rem;
 }

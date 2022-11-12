@@ -21,10 +21,18 @@ let store5 = new Store(`Lima`, 2, 16, 4.6, [], 0);
 
 let allStores = [store1, store2, store3, store4, store5];
 let operatingHours = [`6 AM`, `7 AM`, `8 AM`, `9 AM`, `10 AM`, `11 AM`, `12 PM`, `1 PM`, `2 PM`, `3 PM`, `4 PM`, `5 PM`, `6 PM`, `7 PM`];
+let footRow = document.getElementById('cookieTableFoot');
 
 // This function gets our randomly generated customers based on the min and max per location
 function randNumber(min, max) {
-  return Math.round(min + Math.random() * (max - min));
+ return Math.round(min + Math.random() * (max - min));
+ 
+}
+
+//function to generate random average cookie sales
+function randAvgCookies(min, max) {
+  let num = min + Math.random() * (max - min);
+  return num.toFixed(1);
 }
 
 //This function calculates all the operating data for the stores and pushes it to the hourly sales array
@@ -87,8 +95,9 @@ Store.prototype.render = function(){
 }
 
 //builds our footer table
+
+
 function tableFooter(store, opHours){
-  let footRow = document.getElementById('cookieTableFoot');
   let totalRow = document.createElement('tr');
   let totalTitle = document.createElement('td');
   totalTitle.textContent = 'Totals';
@@ -120,6 +129,7 @@ function allSales(arr){
   let final = 0;
   for(let i = 0; i < arr.length; i++){
     final += arr[i].totalSales;
+    console.log(final);
   }
   return final;
 }
@@ -131,6 +141,34 @@ function finalCookies(allStores){
   finalSales.textContent = `Total Cookies Sold: ${allSales(allStores)}`;
   parentElement.appendChild(finalSales);
 }
+
+////////////////////
+//Form Code
+////////////////////
+
+let addStoreForm = document.getElementById(`addStoreForm`);
+addStoreForm.addEventListener(`submit`, addStore);
+
+function addStore(event){
+  event.preventDefault();
+  let form = event.target;
+  let location = form.storeLocation.value;
+  let minCustomer = parseInt(form.minCustomer.value);
+  let maxCustomer = parseInt(form.maxCustomer.value);
+  let avgCookieSale = parseInt(randAvgCookies(1,6));
+  let store = new Store(location, minCustomer, maxCustomer, avgCookieSale, [], 0);
+  location = location.toLowerCase();
+  if(location == allStores.location){
+    alert("That is already a store");
+  }
+  else {
+    allStores.push(store);
+    store.render();
+    footRow.innerHTML = "";
+    tableFooter(allStores, operatingHours);
+  }
+}
+
 
 tableHeader(operatingHours);
 renderAll(allStores);
