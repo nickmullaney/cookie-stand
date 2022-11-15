@@ -48,12 +48,8 @@ nav {
   float: right;
 }
 
-/* nav:hover {
-  transition: 1s;
-  background-color: linear-gradient(45deg rgb(221, 126, 66));
-} */
 
-a {
+nav a {
   display: flex;
   /* width:auto; */
   height: 70px;
@@ -101,13 +97,19 @@ justify-content: center;
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
-align-content: center;
+align-items: center;
+flex-direction: column;
 }
+
+/* Location Design */
 
 .locationBanner{
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgba(128, 128, 128, 0.561);
 }
 
 .location{
@@ -119,6 +121,7 @@ align-content: center;
   width: fit-content;
   height: fit-content;
   margin: 1rem;
+  background-color: rgba(114, 114, 114, 0.495);
 }
 
 .googleMap{
@@ -143,8 +146,26 @@ background: linear-gradient(45deg, rgb(244, 194, 194), rgb(211, 125, 125));
 border: 2px solid peru;
 }
 
+/* Contact Banner */
 
-.container {
+.contactBanner{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background-color: rgba(111, 110, 110, 0.819);
+  /* margin: 1rem; */
+  padding: 1rem;
+  font-weight: 800;
+}
+
+.contactUs{
+  margin: 0;
+}
+
+
+
+/* .container {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -163,4 +184,4 @@ border: 2px solid peru;
   padding: 10px;
   align-items: center;
   justify-content: space-around;
-}
+} */
