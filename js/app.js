@@ -22,6 +22,7 @@ let store5 = new Store(`Lima`, 2, 16, 4.6, [], 0);
 let allStores = [store1, store2, store3, store4, store5];
 let operatingHours = [`6 AM`, `7 AM`, `8 AM`, `9 AM`, `10 AM`, `11 AM`, `12 PM`, `1 PM`, `2 PM`, `3 PM`, `4 PM`, `5 PM`, `6 PM`, `7 PM`];
 let footRow = document.getElementById('cookieTableFoot');
+let parentElement = document.getElementById(`finalSales`);
 
 // This function gets our randomly generated customers based on the min and max per location
 function randNumber(min, max) {
@@ -39,7 +40,7 @@ function randAvgCookies(min, max) {
 function storeCalculator(store) {
   for (let i = 0; i < operatingHours.length; i++) {
     let hourlyCustomers = randNumber(store.minCustomer, store.maxCustomer);
-    let avgCookiePerCustomer = Math.round(hourlyCustomers * store.avgCookieSale);
+    let avgCookiePerCustomer = Math.floor(hourlyCustomers * store.avgCookieSale);
     //pushes the avg cookie per customer to the hourlysales
     store.hourlySales.push(avgCookiePerCustomer);
     store.totalSales += store.hourlySales[i];
@@ -136,7 +137,7 @@ function allSales(arr){
 
 //Posts final sales for all stores
 function finalCookies(allStores){
-  let parentElement = document.getElementById(`finalSales`)
+  
   let finalSales = document.createElement(`p`);
   finalSales.textContent = `Total Cookies Sold: ${allSales(allStores)}`;
   parentElement.appendChild(finalSales);
@@ -155,7 +156,7 @@ function addStore(event){
   let location = form.storeLocation.value;
   let minCustomer = parseInt(form.minCustomer.value);
   let maxCustomer = parseInt(form.maxCustomer.value);
-  let avgCookieSale = parseInt(randAvgCookies(1,6));
+  let avgCookieSale = form.avgCookie.value;
   let store = new Store(location, minCustomer, maxCustomer, avgCookieSale, [], 0);
   location = location.toLowerCase();
   if(location == allStores.location){
@@ -166,6 +167,8 @@ function addStore(event){
     store.render();
     footRow.innerHTML = "";
     tableFooter(allStores, operatingHours);
+    parentElement.innerHTML = "";
+    finalCookies(allStores);
   }
 }
 
