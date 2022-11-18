@@ -1,8 +1,18 @@
+/* Fonts */
+/* font-family: 'Cinzel', serif;
+font-family: 'Comic Neue', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'IM Fell English', serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'Noto Serif Oriya', serif;
+font-family: 'Roboto', sans-serif; */
+
 body {
- background: rgba(157, 85, 146, 1);
+  background: rgba(157, 85, 146, 1);
+  font-family: 'Noto Serif Oriya', serif,sans-serif, "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-p{
+p {
   margin: 0;
   text-align: center;
 }
@@ -12,11 +22,12 @@ header {
   background-color: rgb(79, 196, 196);
   text-align: center;
   padding: 5px;
+ 
 }
 
 .navBar {
   height: fit-content;
- border-style: groove;
+  border-style: groove;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +38,7 @@ header {
     rgba(157, 85, 146, 1) 35%,
     rgba(224, 40, 118, 1) 95%,
     rgba(0, 212, 255, 1) 100%
-    );
+  );
 }
 
 #headerLogo {
@@ -42,7 +53,6 @@ nav {
   float: right;
 }
 
-
 nav a {
   display: flex;
   /* width:auto; */
@@ -53,7 +63,7 @@ nav a {
   font-size: 20px;
   border-radius: 20%;
   color: aliceblue;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Noto Sans", sans-serif, "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   /* border: 1px solid red; */
 }
 
@@ -72,10 +82,10 @@ nav a:hover {
 }
 /* Middle images */
 
-.heroImage{
+.heroImage {
   display: flex;
   margin: 15px;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   flex-direction: row;
   width: 100%;
   height: 500px;
@@ -83,32 +93,33 @@ nav a:hover {
   min-width: 0;
 }
 
-.bannerImage{
-display: flex;
-justify-content: center;
+.bannerImage {
+  display: flex;
+  justify-content: center;
 }
 
-.bannerGif{
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-align-items: center;
-flex-direction: column;
-padding: 5px;
+.bannerGif {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
 }
 
 /* Location Design */
 
-.locationBanner{
+.locationBanner {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   background-color: rgba(128, 128, 128, 0.561);
+  font-family: 'Noto Serif Oriya', serif;
 }
 
-.location{
+.location {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,31 +131,29 @@ padding: 5px;
   background-color: rgba(114, 114, 114, 0.495);
 }
 
-.googleMap{
-margin: 10px;
-display: flex;
-justify-content:space-evenly;
-background: linear-gradient(45deg, rgb(244, 194, 194), rgb(211, 125, 125));
+.googleMap {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  background: linear-gradient(45deg, rgb(244, 194, 194), rgb(211, 125, 125));
 }
 
-
-.mapText{
+.mapText {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   margin: 15px;
-  
-  padding: 10px;
 
+  padding: 10px;
 }
-.cookieImg{
-border: 2px solid peru;
+.cookieImg {
+  border: 2px solid peru;
 }
 
 /* Contact Banner */
 
-.contactBanner{
+.contactBanner {
   display: flex;
   justify-content: space-around;
   align-content: center;
@@ -153,10 +162,9 @@ border: 2px solid peru;
   /* margin: 1rem; */
   padding: 1rem;
   font-weight: 800;
+  font-family: "Noto Sans", sans-serif, "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.contactUs{
+.contactUs {
   margin: 0;
 }
-
-
