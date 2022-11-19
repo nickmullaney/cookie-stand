@@ -1,3 +1,5 @@
+/* Sales Style Sheet */
+
 /* Fonts */
 /* font-family: 'Cinzel', serif;
 font-family: 'Comic Neue', cursive;
@@ -138,13 +140,12 @@ tbody td:hover::before {
   bottom: -9999px;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: -2;
-  /* height: 100%; */
 }
 
-td,
-th {
+td,th {
   padding: 1rem;
 }
+
 .addStore {
   display: flex;
   flex-direction: column;
@@ -163,15 +164,16 @@ tfoot tr:hover {
 
 tfoot td {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  /* color:#5271ff; */
   content: "\e8b9";
 }
+
 tfoot td {
   position: relative;
 }
+
 tfoot td:hover::before {
   content: "";
-  /* position: absolute; */
+  position: absolute;
   left: 0;
   right: 0;
   top: -9999px;
@@ -196,10 +198,10 @@ form {
 
 input {
   border-radius: 25px;
-  text-align:center;
+  text-align: center;
 }
 
-input:focus{
+input:focus {
   border: 2px solid #5271ff;
 }
 

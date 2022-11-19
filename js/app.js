@@ -1,6 +1,7 @@
 'use strict';
 
-function Store(location, minCustomer, maxCustomer, avgCookieSale, hourlySales, totalSales){
+// Global variables
+function Store(location, minCustomer, maxCustomer, avgCookieSale, hourlySales, totalSales) {
   this.location = location;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
@@ -8,6 +9,7 @@ function Store(location, minCustomer, maxCustomer, avgCookieSale, hourlySales, t
   this.hourlySales = hourlySales;
   this.totalSales = totalSales;
 }
+
 let store1 = new Store(`Seattle`, 23, 65, 6.3, [], 0);
 
 let store2 = new Store(`Tokyo`, 3, 24, 1.2, [], 0);
@@ -18,19 +20,20 @@ let store4 = new Store(`Paris`, 20, 38, 2.3, [], 0);
 
 let store5 = new Store(`Lima`, 2, 16, 4.6, [], 0);
 
-
 let allStores = [store1, store2, store3, store4, store5];
 let operatingHours = [`6 AM`, `7 AM`, `8 AM`, `9 AM`, `10 AM`, `11 AM`, `12 PM`, `1 PM`, `2 PM`, `3 PM`, `4 PM`, `5 PM`, `6 PM`, `7 PM`];
 let footRow = document.getElementById('cookieTableFoot');
 let parentElement = document.getElementById(`finalSales`);
 
+// Functions
+
 // This function gets our randomly generated customers based on the min and max per location
 function randNumber(min, max) {
- return Math.round(min + Math.random() * (max - min));
- 
+  return Math.round(min + Math.random() * (max - min));
 }
 
-//function to generate random average cookie sales
+//function to generate random average cookie sales instead of asking customer
+// Experimental code that works
 function randAvgCookies(min, max) {
   let num = min + Math.random() * (max - min);
   return num.toFixed(1);
@@ -55,13 +58,13 @@ function showAllLocations(allLocations) {
 }
 
 //This function builds our table header
-function tableHeader(operatingHours){
+function tableHeader(operatingHours) {
   let storeHours = document.getElementById('cookieTableHead');
   let tableRow = document.createElement('tr');
   let a1 = document.createElement('td');
   a1.textContent = '';
   tableRow.appendChild(a1);
-  for(let i = 0; i < operatingHours.length; i++){
+  for (let i = 0; i < operatingHours.length; i++) {
     let tableHeader = document.createElement('th');
     tableHeader.textContent = operatingHours[i];
     tableRow.appendChild(tableHeader);
@@ -73,7 +76,7 @@ function tableHeader(operatingHours){
 }
 
 //This function builds out the table body data
-Store.prototype.render = function(){
+Store.prototype.render = function () {
   storeCalculator(this)
   let tableElement = document.getElementById('cookieTableBody');
   let cityRow = document.createElement(`tr`);
@@ -82,7 +85,7 @@ Store.prototype.render = function(){
   cityName.textContent = this.location;
   cityRow.appendChild(cityName);
   //adds our hourly sales to the table
-  for(let i = 0; i < this.hourlySales.length; i++){
+  for (let i = 0; i < this.hourlySales.length; i++) {
     let cityData = document.createElement('td');
     cityData.textContent = this.hourlySales[i];
     cityRow.appendChild(cityData);
@@ -91,21 +94,19 @@ Store.prototype.render = function(){
   let dailyTotal = document.createElement('td');
   dailyTotal.textContent = this.totalSales;
   cityRow.appendChild(dailyTotal);
-  
+
   tableElement.appendChild(cityRow);
 }
 
 //builds our footer table
-
-
-function tableFooter(store, opHours){
+function tableFooter(store, opHours) {
   let totalRow = document.createElement('tr');
   let totalTitle = document.createElement('td');
   totalTitle.textContent = 'Totals';
   totalRow.appendChild(totalTitle);
-  for(let i = 0; i < opHours.length; i++){
+  for (let i = 0; i < opHours.length; i++) {
     let hourlyValues = 0;
-    for(let j = 0; j < store.length; j++){
+    for (let j = 0; j < store.length; j++) {
       hourlyValues += store[j].hourlySales[i];
     }
     let hourlyTotals = document.createElement('td');
@@ -119,16 +120,16 @@ function tableFooter(store, opHours){
 }
 
 //Renders every location in the array
-function renderAll(arr){
-  for(let i = 0; i < arr.length; i++){
+function renderAll(arr) {
+  for (let i = 0; i < arr.length; i++) {
     arr[i].render();
   }
 }
 
 //Gets All around total sales information
-function allSales(arr){
+function allSales(arr) {
   let final = 0;
-  for(let i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     final += arr[i].totalSales;
     console.log(final);
   }
@@ -136,8 +137,7 @@ function allSales(arr){
 }
 
 //Posts final sales for all stores
-function finalCookies(allStores){
-  
+function finalCookies(allStores) {
   let finalSales = document.createElement(`p`);
   finalSales.textContent = `Total Cookies Sold: ${allSales(allStores)}`;
   parentElement.appendChild(finalSales);
@@ -150,7 +150,7 @@ function finalCookies(allStores){
 let addStoreForm = document.getElementById(`addStoreForm`);
 addStoreForm.addEventListener(`submit`, addStore);
 
-function addStore(event){
+function addStore(event) {
   event.preventDefault();
   let form = event.target;
   let location = form.storeLocation.value;
@@ -159,7 +159,7 @@ function addStore(event){
   let avgCookieSale = form.avgCookie.value;
   let store = new Store(location, minCustomer, maxCustomer, avgCookieSale, [], 0);
   location = location.toLowerCase();
-  if(location == allStores.location){
+  if (location == allStores.location) {
     alert("That is already a store");
   }
   else {
@@ -172,6 +172,7 @@ function addStore(event){
   }
 }
 
+// Execution Code
 
 tableHeader(operatingHours);
 renderAll(allStores);
